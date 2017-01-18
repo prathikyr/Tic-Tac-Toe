@@ -11,7 +11,7 @@ char vic2[] = "You Lost";
 char vic3[] = "Draw";
 char moveC[] = "O";
 char moveP[] = "X";
-char lb[] = "LeaderBoard";
+//char lb[] = "LeaderBoard";
 bool playerMove = true;
 bool matchIsGoingOn = true;
 
@@ -42,7 +42,7 @@ void display(){
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	
 	drawTicTacToe();
-	glColor3f(1.0, 1.0, 1.0);
+	/*glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_POLYGON);
 		glVertex2f(0.5, 0.9);
 		glVertex2f(0.9, 0.9);
@@ -50,7 +50,7 @@ void display(){
 		glVertex2f(0.5, 0.8);
 	glEnd();
 	glColor3f(0.0, 1.0, 0.0);
-	printString(lb, 0.52, 0.83, 0.0);
+	printString(lb, 0.52, 0.83, 0.0);*/
 	glFlush();
 }
 
@@ -262,7 +262,7 @@ bool draw(){
 				return false;
 	return true;
 }
-
+/*
 void stats(){
 	int matches, wins, lost;
 	FILE *fp;
@@ -271,12 +271,13 @@ void stats(){
 	printf("Number of matches played = %d\nWins = %d\nLost = %d\nDraw = %d\n\n", matches, wins, lost, matches-(wins+lost));
 	fclose(fp);
 }
-
+*/
+/*
 bool optionBox(GLfloat a, GLfloat b, GLfloat x, GLfloat y){
 	if((x>=a && y<=b) && (x<=a+0.4 && y>=b-0.1))
 		return true;
 	return false;	
-}
+}*/
 
 void matchOver(int vic){
 	int matches, wins, lost;
@@ -302,10 +303,10 @@ void mouse(int btn, int state, int ax, int ay){
 		GLfloat i, j;
 		int c, d;
 		bool flag = true;
-		if(optionBox(0.5, 0.9, x, y)){
-			stats();
-			return ;
-		}
+		//if(optionBox(0.5, 0.9, x, y)){
+		//	stats();
+		//	return ;
+		//}
 		for(i=-0.6, c=0; i<0.5 && flag==true; i+=0.4, c++){
 			for(j=0.6, d=0; j>-0.5; j-=0.4, d++){
 				if(insideBox(i, j, x, y)){
