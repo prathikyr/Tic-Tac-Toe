@@ -11,7 +11,11 @@ char vic2[] = "You Lost";
 char vic3[] = "Draw";
 char moveC[] = "O";
 char moveP[] = "X";
+<<<<<<< HEAD
 //char lb[] = "LeaderBoard";
+=======
+char ng[] = "New Game";
+>>>>>>> f9318312c36dc03731085aebd36b778f665caa68
 bool playerMove = true;
 bool matchIsGoingOn = true;
 
@@ -50,7 +54,11 @@ void display(){
 		glVertex2f(0.5, 0.8);
 	glEnd();
 	glColor3f(0.0, 1.0, 0.0);
+<<<<<<< HEAD
 	printString(lb, 0.52, 0.83, 0.0);*/
+=======
+	printString(ng, 0.52, 0.83, 0.0);
+>>>>>>> f9318312c36dc03731085aebd36b778f665caa68
 	glFlush();
 }
 
@@ -279,15 +287,25 @@ void stats(){
 	fscanf(fp, "%d%d%d", &matches, &wins, &lost);
 	printf("Number of matches played = %d\nWins = %d\nLost = %d\nDraw = %d\n\n", matches, wins, lost, matches-(wins+lost));
 	fclose(fp);
+<<<<<<< HEAD
 }
 */
 /*
+=======
+}*/
+
+>>>>>>> f9318312c36dc03731085aebd36b778f665caa68
 bool optionBox(GLfloat a, GLfloat b, GLfloat x, GLfloat y){
 	if((x>=a && y<=b) && (x<=a+0.4 && y>=b-0.1))
 		return true;
 	return false;	
+<<<<<<< HEAD
 }*/
 
+=======
+}
+/*
+>>>>>>> f9318312c36dc03731085aebd36b778f665caa68
 void matchOver(int vic){
 	int matches, wins, lost;
 	FILE *fp;
@@ -302,6 +320,13 @@ void matchOver(int vic){
 	fp = fopen("stats.txt", "w");
 	fprintf(fp, "%d %d %d", matches, wins, lost);
 	fclose(fp);
+}*/
+
+void newGame(){
+	for(int i=0; i<3; i++)
+		for(int j=0; j<3; j++)
+			marked[i][j]=0;
+	display();
 }
 
 void mouse(int btn, int state, int ax, int ay){
@@ -312,10 +337,17 @@ void mouse(int btn, int state, int ax, int ay){
 		GLfloat i, j;
 		int c, d;
 		bool flag = true;
+<<<<<<< HEAD
 		//if(optionBox(0.5, 0.9, x, y)){
 		//	stats();
 		//	return ;
 		//}
+=======
+		if(optionBox(0.5, 0.9, x, y)){
+			newGame();
+			return ;
+		}
+>>>>>>> f9318312c36dc03731085aebd36b778f665caa68
 		for(i=-0.6, c=0; i<0.5 && flag==true; i+=0.4, c++){
 			for(j=0.6, d=0; j>-0.5; j-=0.4, d++){
 				if(insideBox(i, j, x, y)){
@@ -339,12 +371,12 @@ void mouse(int btn, int state, int ax, int ay){
 		printf("\n");*/
 		if(victory(1)){
 			printString(vic1, -0.2, 0.8, 0.0);
-			matchOver(1);
+			//matchOver(1);
 			return ;
 		}
 		if(draw()){
 			printString(vic3, -0.2, 0.8, 0.0);
-			matchOver(0);
+			//matchOver(0);
 			return ;
 		}
 		playerMove = computerMove();
@@ -356,12 +388,12 @@ void mouse(int btn, int state, int ax, int ay){
 		}*/
 		if(victory(2)){
 			printString(vic2, -0.2, 0.8, 0.0);
-			matchOver(2);
+			//matchOver(2);
 			return ;
 		}
 		if(draw()){
 			printString(vic3, -0.2, 0.8, 0.0);
-			matchOver(0);
+			//matchOver(0);
 			return ;
 		}
 	}
