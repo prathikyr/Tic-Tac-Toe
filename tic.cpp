@@ -70,8 +70,10 @@ bool victory(int p){
 				break;
 			}
 		}
-		if(flag == true)
+		if(flag == true){
+			matchIsGoingOn = false;
 			return true;
+		}
 	}
 
 	//Column vitory
@@ -83,8 +85,10 @@ bool victory(int p){
 				break;
 			}
 		}
-		if(flag == true)
+		if(flag == true){
+			matchIsGoingOn = false;
 			return true;
+		}
 	}
 	
 	//Diagonal1 victory
@@ -92,16 +96,20 @@ bool victory(int p){
 	for(int i=0; i<3; i++)
 		if(marked[i][i] != p)
 			flag = false;
-	if(flag)
+	if(flag){
+		matchIsGoingOn = false;
 		return true;
+	}
 	
 	//Diagonal2 victory	
 	flag = true;
 	for(int i=0; i<3; i++)
 		if(marked[i][2-i] != p)
 			flag = false;
-	if(flag)
+	if(flag){
+		matchIsGoingOn = false;
 		return true;
+	}
 		
 	return false;
 }
@@ -260,6 +268,7 @@ bool draw(){
 		for(j=0; j<3; j++)
 			if(marked[i][j] == 0)
 				return false;
+	matchIsGoingOn = false;
 	return true;
 }
 /*
